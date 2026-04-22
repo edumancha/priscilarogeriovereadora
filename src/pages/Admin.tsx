@@ -46,7 +46,7 @@ export default function Admin() {
     setReports((prev) => prev.filter((r) => r.id !== id));
   };
 
-  const updateReportStatus = async (id: string, status: string) => {
+  const updateReportStatus = async (id: string, status: "pending" | "in_review" | "resolved" | "archived") => {
     const { error } = await supabase.from("reports").update({ status }).eq("id", id);
     if (error) return toast.error(error.message);
     setReports((prev) => prev.map((r) => (r.id === id ? { ...r, status } : r)));
@@ -148,7 +148,7 @@ export default function Admin() {
                         <span className="px-2 py-0.5 bg-primary/10 text-primary text-xs font-medium rounded">{r.category}</span>
                         <select
                           value={r.status}
-                          onChange={(e) => updateReportStatus(r.id, e.target.value)}
+                          onChange={(e) => updateReportStatus(r.id, e.target.value as "pending" | "in_review" | "resolved" | "archived")}
                           className="text-xs px-2 py-1 bg-muted rounded border border-border"
                         >
                           <option value="pending">Pendente</option>
