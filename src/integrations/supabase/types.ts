@@ -221,6 +221,54 @@ export type Database = {
         }
         Relationships: []
       }
+      reports: {
+        Row: {
+          category: string
+          created_at: string
+          description: string
+          id: string
+          internal_notes: string | null
+          location: string | null
+          neighborhood: string | null
+          priority: Database["public"]["Enums"]["report_priority"]
+          reporter_contact: string
+          reporter_name: string
+          status: Database["public"]["Enums"]["report_status"]
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          description: string
+          id?: string
+          internal_notes?: string | null
+          location?: string | null
+          neighborhood?: string | null
+          priority?: Database["public"]["Enums"]["report_priority"]
+          reporter_contact: string
+          reporter_name: string
+          status?: Database["public"]["Enums"]["report_status"]
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string
+          id?: string
+          internal_notes?: string | null
+          location?: string | null
+          neighborhood?: string | null
+          priority?: Database["public"]["Enums"]["report_priority"]
+          reporter_contact?: string
+          reporter_name?: string
+          status?: Database["public"]["Enums"]["report_status"]
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       suggestions: {
         Row: {
           author_name: string | null
@@ -290,6 +338,27 @@ export type Database = {
           },
         ]
       }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
       votes: {
         Row: {
           created_at: string
@@ -343,9 +412,18 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
+      is_admin: { Args: never; Returns: boolean }
       is_moderator: { Args: never; Returns: boolean }
     }
     Enums: {
+      app_role: "admin" | "moderator" | "user"
       category_type:
         | "infraestrutura"
         | "saude"
@@ -356,6 +434,8 @@ export type Database = {
         | "cultura"
         | "transporte"
       item_type: "project" | "suggestion"
+      report_priority: "low" | "medium" | "high" | "urgent"
+      report_status: "pending" | "in_review" | "resolved" | "archived"
       vote_type: "up" | "down"
     }
     CompositeTypes: {
@@ -484,6 +564,7 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
+      app_role: ["admin", "moderator", "user"],
       category_type: [
         "infraestrutura",
         "saude",
@@ -495,6 +576,8 @@ export const Constants = {
         "transporte",
       ],
       item_type: ["project", "suggestion"],
+      report_priority: ["low", "medium", "high", "urgent"],
+      report_status: ["pending", "in_review", "resolved", "archived"],
       vote_type: ["up", "down"],
     },
   },

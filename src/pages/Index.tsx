@@ -8,7 +8,7 @@ import { useProjects } from "@/hooks/useProjects";
 import { useSuggestions } from "@/hooks/useSuggestions";
 import { format, formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
-import priscilaHero from "@/assets/priscila-hero.jpeg";
+import priscilaHero from "@/assets/priscila-office-smile.jpeg";
 
 const stats = [
   { icon: Users, value: "2.847", label: "Cidadãos participando" },
@@ -97,12 +97,12 @@ export default function Index() {
                   <div className="absolute -inset-4 bg-secondary/30 rounded-3xl blur-2xl"></div>
                   <img
                     src={priscilaHero}
-                    alt="Vereadora Priscila Rogério"
-                    className="relative w-72 md:w-80 lg:w-96 rounded-2xl shadow-2xl object-cover aspect-[3/4]"
+                    alt="Vereadora Priscila Rogério em seu gabinete"
+                    className="relative w-72 md:w-80 lg:w-[28rem] rounded-2xl shadow-2xl object-cover aspect-[4/3]"
                   />
                   {/* Badge */}
                   <div className="absolute -bottom-4 -right-4 bg-card text-foreground px-6 py-3 rounded-xl shadow-xl">
-                    <p className="font-display font-semibold text-lg">Priscila Rogério</p>
+                    <p className="font-semibold text-lg tracking-tight">Priscila Rogério</p>
                     <p className="text-sm text-muted-foreground">Vereadora</p>
                   </div>
                 </div>
