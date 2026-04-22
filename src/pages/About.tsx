@@ -2,8 +2,8 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Link } from "react-router-dom";
 import { ArrowRight, Heart, Users, Shield, Award } from "lucide-react";
-import priscilaHero from "@/assets/priscila-hero.jpeg";
-import priscilaSpeaking from "@/assets/priscila-speaking.jpeg";
+import priscilaLibrary from "@/assets/priscila-library-thinking.jpeg";
+import priscilaLibraryDesk from "@/assets/priscila-library-desk.jpeg";
 
 const values = [
   {
@@ -55,9 +55,9 @@ export default function About() {
               <div className="relative">
                 <div className="absolute -inset-4 bg-secondary/20 rounded-3xl blur-2xl"></div>
                 <img
-                  src={priscilaHero}
-                  alt="Vereadora Priscila Rogério"
-                  className="relative w-full max-w-md mx-auto rounded-2xl shadow-2xl object-cover aspect-[3/4]"
+                  src={priscilaLibrary}
+                  alt="Vereadora Priscila Rogério em momento de reflexão"
+                  className="relative w-full max-w-md mx-auto rounded-2xl shadow-2xl object-cover aspect-[4/3]"
                 />
               </div>
               
@@ -162,9 +162,9 @@ export default function About() {
               <div className="relative">
                 <div className="absolute -inset-4 bg-primary/10 rounded-3xl blur-2xl"></div>
                 <img
-                  src={priscilaSpeaking}
-                  alt="Priscila Rogério em evento"
-                  className="relative w-full max-w-md mx-auto lg:ml-auto rounded-2xl shadow-2xl object-cover aspect-[3/4]"
+                  src={priscilaLibraryDesk}
+                  alt="Priscila Rogério estudando documentos do mandato"
+                  className="relative w-full max-w-md mx-auto lg:ml-auto rounded-2xl shadow-2xl object-cover aspect-[4/3]"
                 />
               </div>
             </div>

@@ -37,7 +37,10 @@ export function Footer() {
                 Projetos
               </Link>
               <Link to="/forum" className="text-sm text-primary-foreground/80 hover:text-secondary transition-colors">
-                Fórum Participativo
+                Mandato Participativo
+              </Link>
+              <Link to="/denuncias" className="text-sm text-primary-foreground/80 hover:text-secondary transition-colors">
+                Portal de Denúncias
               </Link>
             </nav>
           </div>
