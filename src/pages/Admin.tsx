@@ -38,7 +38,20 @@ export default function Admin() {
     setBusy(false);
   };
 
+  const requireDeleteCredentials = () => {
+    const u = window.prompt("Usuário para confirmar exclusão:");
+    if (u === null) return false;
+    const p = window.prompt("Senha:");
+    if (p === null) return false;
+    if (u !== "priscilaadmin" || p !== "mandato102030") {
+      toast.error("Credenciais incorretas. Exclusão cancelada.");
+      return false;
+    }
+    return true;
+  };
+
   const deleteReport = async (id: string) => {
+    if (!requireDeleteCredentials()) return;
     if (!confirm("Apagar esta denúncia permanentemente?")) return;
     const { error } = await supabase.from("reports").delete().eq("id", id);
     if (error) return toast.error(error.message);
