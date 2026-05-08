@@ -318,6 +318,11 @@
     box-shadow: var(--shadow-glow);
   }
 
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+}
+
 /* Esconder badges do Lovable */
 .lovable-badge,
 [data-lovable-badge] {
