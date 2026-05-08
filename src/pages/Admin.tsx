@@ -67,6 +67,7 @@ export default function Admin() {
   };
 
   const deleteSuggestion = async (id: string) => {
+    if (!requireDeleteCredentials()) return;
     if (!confirm("Apagar esta sugestão do mandato participativo?")) return;
     const { error } = await supabase.from("suggestions").delete().eq("id", id);
     if (error) return toast.error(error.message);
