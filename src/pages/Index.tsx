@@ -110,23 +110,6 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className="bg-card border-b border-border">
-          <div className="section-container py-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-accent rounded-xl mb-3">
-                    <stat.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <p className="font-display text-2xl md:text-3xl font-bold text-foreground">{stat.value}</p>
-                  <p className="text-sm text-muted-foreground">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Featured Projects */}
         <section className="section-padding bg-background">
           <div className="section-container">
