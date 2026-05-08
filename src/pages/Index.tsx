@@ -94,14 +94,20 @@ export default function Index() {
               {/* Image */}
               <div className="relative flex justify-center lg:justify-end animate-fade-in animation-delay-300">
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-secondary/30 rounded-3xl blur-2xl"></div>
+                  <div className="absolute -inset-6 bg-secondary/40 rounded-[2rem] blur-3xl"></div>
                   <img
                     src={priscilaHero}
                     alt="Vereadora Priscila Rogério em seu gabinete"
-                    className="relative w-72 md:w-80 lg:w-[28rem] rounded-2xl shadow-2xl object-cover aspect-[4/3]"
+                    className="relative w-80 md:w-[26rem] lg:w-[34rem] rounded-2xl shadow-2xl object-cover aspect-[4/5]"
+                    style={{
+                      WebkitMaskImage:
+                        "linear-gradient(to bottom, black 78%, transparent 100%)",
+                      maskImage:
+                        "linear-gradient(to bottom, black 78%, transparent 100%)",
+                    }}
                   />
                   {/* Badge */}
-                  <div className="absolute -bottom-4 -right-4 bg-card text-foreground px-6 py-3 rounded-xl shadow-xl">
+                  <div className="absolute bottom-4 -right-4 bg-card text-foreground px-6 py-3 rounded-xl shadow-xl">
                     <p className="font-semibold text-lg tracking-tight">Priscila Rogério</p>
                     <p className="text-sm text-muted-foreground">Vereadora</p>
                   </div>
