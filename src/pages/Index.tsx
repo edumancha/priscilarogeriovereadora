@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MessageSquarePlus, Vote, ArrowRight, Users, FileText, TrendingUp, Shield } from "lucide-react";
+import { MessageSquarePlus, Vote, ArrowRight } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ProjectCard } from "@/components/cards/ProjectCard";
@@ -9,13 +9,6 @@ import { useSuggestions } from "@/hooks/useSuggestions";
 import { format, formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import priscilaHero from "@/assets/priscila-office-smile.jpeg";
-
-const stats = [
-  { icon: Users, value: "2.847", label: "Cidadãos participando" },
-  { icon: FileText, value: "156", label: "Projetos em votação" },
-  { icon: TrendingUp, value: "89%", label: "Taxa de aprovação" },
-  { icon: Shield, value: "100%", label: "Transparência" },
-];
 
 export default function Index() {
   const { data: projects = [] } = useProjects();
