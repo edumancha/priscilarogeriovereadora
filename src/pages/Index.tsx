@@ -8,17 +8,16 @@ import { useProjects } from "@/hooks/useProjects";
 import { useSuggestions } from "@/hooks/useSuggestions";
 import { format, formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
-import priscilaHero from "@/assets/priscila-office-smile.jpeg";
+import priscilaHero from "@/assets/priscila-white-blazer.png.asset.json";
 
 export default function Index() {
   const { data: projects = [] } = useProjects();
   const { data: suggestions = [] } = useSuggestions();
-  
-  // Get top 3 projects and suggestions
+
   const featuredProjects = projects
     .sort((a, b) => (b.votes_up - b.votes_down) - (a.votes_up - a.votes_down))
     .slice(0, 3);
-    
+
   const popularSuggestions = suggestions
     .sort((a, b) => (b.votes_up - b.votes_down) - (a.votes_up - a.votes_down))
     .slice(0, 2);
@@ -42,37 +41,37 @@ export default function Index() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      
+
       <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="relative bg-gradient-hero text-primary-foreground overflow-hidden">
-          {/* Background Pattern */}
+        <section className="relative overflow-hidden bg-gradient-hero text-primary-foreground">
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-full h-full" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            }} />
+            <div
+              className="absolute top-0 left-0 h-full w-full"
+              style={{
+                backgroundImage:
+                  'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.4\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
+              }}
+            />
           </div>
-          
+
           <div className="section-container relative">
-            <div className="grid lg:grid-cols-2 gap-12 items-center py-16 md:py-24">
-              {/* Content */}
+            <div className="grid items-center gap-12 py-16 md:py-24 lg:grid-cols-2">
               <div className="text-center lg:text-left">
-                <span className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full text-sm font-medium mb-6 animate-fade-in">
-                  <span className="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
-                  Mandato Participativo Digital
+                <span className="inline-flex items-center gap-2 rounded-full bg-secondary/20 px-4 py-2 text-sm font-medium backdrop-blur-sm animate-fade-in mb-6">
+                  <span className="h-2 w-2 rounded-full bg-secondary animate-pulse"></span>
+                  Priscila Rogério • Mandato Participativo
                 </span>
-                
-                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-slide-up">
-                  O povo decide{" "}
-                  <span className="text-secondary">junto</span>
+
+                <h1 className="font-display text-4xl font-bold mb-6 animate-slide-up md:text-5xl lg:text-6xl">
+                  O povo decide <span className="text-secondary">junto</span>
                 </h1>
-                
-                <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0 animate-slide-up animation-delay-100">
-                  Participe ativamente das decisões do mandato. Sugira projetos, vote em propostas 
+
+                <p className="mx-auto mb-8 max-w-xl text-lg leading-relaxed text-primary-foreground/90 animate-slide-up animation-delay-100 md:text-xl lg:mx-0">
+                  Participe ativamente das decisões do mandato. Sugira projetos, vote em propostas
                   e ajude a construir uma cidade melhor para todos.
                 </p>
-                
-                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slide-up animation-delay-200">
+
+                <div className="flex flex-col justify-center gap-4 animate-slide-up animation-delay-200 sm:flex-row lg:justify-start">
                   <Link to="/forum" className="btn-hero-primary">
                     <MessageSquarePlus className="w-5 h-5" />
                     Envie sua Sugestão
@@ -83,26 +82,27 @@ export default function Index() {
                   </Link>
                 </div>
               </div>
-              
-              {/* Image */}
+
               <div className="relative flex justify-center lg:justify-end animate-fade-in animation-delay-300">
                 <div className="relative">
-                  <div className="absolute -inset-6 bg-secondary/40 rounded-[2rem] blur-3xl"></div>
+                  <div className="absolute -inset-6 rounded-[2rem] bg-secondary/35 blur-3xl"></div>
+                  <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-t from-primary/25 via-transparent to-transparent"></div>
                   <img
-                    src={priscilaHero}
-                    alt="Vereadora Priscila Rogério em seu gabinete"
-                    className="relative w-80 md:w-[26rem] lg:w-[34rem] rounded-2xl shadow-2xl object-cover aspect-[4/5]"
+                    src={priscilaHero.url}
+                    alt="Vereadora Priscila Rogério em retrato institucional do mandato"
+                    className="relative aspect-[4/5] w-[22rem] rounded-[2rem] object-cover shadow-2xl md:w-[30rem] lg:w-[36rem]"
                     style={{
-                      WebkitMaskImage:
-                        "linear-gradient(to bottom, black 78%, transparent 100%)",
-                      maskImage:
-                        "linear-gradient(to bottom, black 78%, transparent 100%)",
+                      WebkitMaskImage: "linear-gradient(to bottom, black 82%, transparent 100%)",
+                      maskImage: "linear-gradient(to bottom, black 82%, transparent 100%)",
                     }}
                   />
-                  {/* Badge */}
-                  <div className="absolute bottom-4 -right-4 bg-card text-foreground px-6 py-3 rounded-xl shadow-xl">
-                    <p className="font-semibold text-lg tracking-tight">Priscila Rogério</p>
-                    <p className="text-sm text-muted-foreground">Vereadora</p>
+                  <div className="absolute bottom-5 right-4 rounded-2xl bg-card/95 px-5 py-3 text-foreground shadow-xl backdrop-blur md:right-0">
+                    <p className="text-base font-semibold tracking-tight md:text-lg">Priscila Rogério</p>
+                    <div className="mt-1 flex items-center gap-2 text-xs text-muted-foreground md:text-sm">
+                      <span>Vereadora</span>
+                      <span className="h-1 w-1 rounded-full bg-secondary"></span>
+                      <span>Mandato Participativo</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -110,10 +110,9 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Featured Projects */}
         <section className="section-padding bg-background">
           <div className="section-container">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+            <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
               <div>
                 <span className="text-primary font-medium text-sm uppercase tracking-wider">Projetos do Mandato</span>
                 <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-2">
@@ -123,8 +122,8 @@ export default function Index() {
                   Acompanhe e vote nos projetos que estão em andamento no mandato
                 </p>
               </div>
-              <Link 
-                to="/projetos" 
+              <Link
+                to="/projetos"
                 className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all"
               >
                 Ver todos os projetos
@@ -135,7 +134,7 @@ export default function Index() {
             {featuredProjects.length > 0 ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {featuredProjects.map((project) => (
-                  <ProjectCard 
+                  <ProjectCard
                     key={project.id}
                     id={project.id}
                     title={project.title}
@@ -159,10 +158,9 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Popular Suggestions */}
         <section className="section-padding bg-muted/50">
           <div className="section-container">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+            <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
               <div>
                 <span className="text-secondary-dark font-medium text-sm uppercase tracking-wider">Voz do Povo</span>
                 <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-2">
@@ -172,8 +170,8 @@ export default function Index() {
                   Ideias enviadas pelos cidadãos para melhorar nossa cidade
                 </p>
               </div>
-              <Link 
-                to="/forum" 
+              <Link
+                to="/forum"
                 className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all"
               >
                 Ver todas as sugestões
@@ -184,7 +182,7 @@ export default function Index() {
             {popularSuggestions.length > 0 ? (
               <div className="grid md:grid-cols-2 gap-6">
                 {popularSuggestions.map((suggestion) => (
-                  <SuggestionCard 
+                  <SuggestionCard
                     key={suggestion.id}
                     id={suggestion.id}
                     title={suggestion.title}
@@ -202,9 +200,8 @@ export default function Index() {
               </div>
             ) : null}
 
-            {/* CTA */}
             <div className="mt-12 text-center">
-              <div className="inline-flex flex-col items-center p-8 bg-card rounded-2xl shadow-lg">
+              <div className="inline-flex flex-col items-center rounded-2xl bg-card p-8 shadow-lg">
                 <h3 className="font-display text-2xl font-semibold text-foreground mb-2">
                   Tem uma ideia para a cidade?
                 </h3>
@@ -220,7 +217,6 @@ export default function Index() {
           </div>
         </section>
 
-        {/* About Preview */}
         <section className="section-padding bg-background">
           <div className="section-container">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -230,22 +226,22 @@ export default function Index() {
                   Quem é Priscila Rogério
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  Mãe, esposa, cristã e comprometida com a nossa cidade. Acredito que a política 
+                  Mãe, esposa, cristã e comprometida com a nossa cidade. Acredito que a política
                   deve ser feita com transparência, ética e proximidade com o povo.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mb-6">
-                  Meu mandato é participativo porque acredito que as melhores decisões são tomadas 
+                  Meu mandato é participativo porque acredito que as melhores decisões são tomadas
                   junto com quem vive os problemas e desafios do dia a dia.
                 </p>
-                <Link 
-                  to="/quem-sou" 
+                <Link
+                  to="/quem-sou"
                   className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all"
                 >
                   Conhecer minha história
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
-              
+
               <div className="relative">
                 <div className="absolute -inset-4 bg-primary/10 rounded-3xl blur-xl"></div>
                 <div className="relative bg-card rounded-2xl p-8 shadow-xl">
@@ -270,8 +266,8 @@ export default function Index() {
                       <span className="text-foreground">Valorização da família e do trabalho</span>
                     </li>
                   </ul>
-                  <Link 
-                    to="/compromissos" 
+                  <Link
+                    to="/compromissos"
                     className="inline-flex items-center gap-2 text-primary font-medium mt-6 hover:gap-3 transition-all"
                   >
                     Ver todos os compromissos

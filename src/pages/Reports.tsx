@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { AlertTriangle, Send, Loader2, ShieldCheck, Lock, FileWarning } from "lucide-react";
-import priscilaOffice from "@/assets/priscila-office-smile.jpeg";
+import priscilaOffice from "@/assets/priscila-white-seated.png.asset.json";
 
 const reportSchema = z.object({
   reporter_name: z.string().trim().min(2, "Informe seu nome completo").max(120),
@@ -81,7 +81,6 @@ export default function Reports() {
       <Header />
 
       <main className="flex-grow">
-        {/* Hero */}
         <section className="relative bg-gradient-hero text-primary-foreground py-16 md:py-24">
           <div className="section-container">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -112,16 +111,15 @@ export default function Reports() {
               <div className="relative hidden lg:block">
                 <div className="absolute -inset-4 bg-secondary/20 rounded-3xl blur-2xl" />
                 <img
-                  src={priscilaOffice}
-                  alt="Vereadora Priscila Rogério em seu gabinete"
-                  className="relative rounded-2xl shadow-2xl object-cover w-full aspect-[4/3]"
+                  src={priscilaOffice.url}
+                  alt="Priscila Rogério em retrato do gabinete do mandato"
+                  className="relative aspect-[4/5] w-full rounded-2xl object-cover shadow-2xl"
                 />
               </div>
             </div>
           </div>
         </section>
 
-        {/* Form */}
         <section className="section-padding bg-background">
           <div className="section-container max-w-3xl">
             <form onSubmit={handleSubmit} className="bg-card rounded-2xl shadow-lg border border-border p-6 md:p-8 space-y-6">

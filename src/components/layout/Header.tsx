@@ -9,7 +9,6 @@ const navItems = [
   { path: "/compromissos", label: "Compromissos" },
   { path: "/projetos", label: "Projetos" },
   { path: "/forum", label: "Mandato Participativo" },
-  { path: "/denuncias", label: "Denúncias" },
 ];
 
 export function Header() {
@@ -18,22 +17,28 @@ export function Header() {
   const { isAdmin } = useAuth();
 
   return (
-    <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
+    <header className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur-md">
       <div className="section-container">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-hero rounded-full flex items-center justify-center shadow-glow">
-              <span className="text-primary-foreground font-bold text-lg md:text-xl tracking-tight">PR</span>
+        <div className="grid h-16 grid-cols-[auto_1fr_auto] items-center gap-4 md:h-20 md:gap-6">
+          <Link to="/" className="flex min-w-0 items-center gap-3">
+            <div className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-hero shadow-glow md:h-12 md:w-12">
+              <span className="text-lg font-bold tracking-tight text-primary-foreground md:text-xl">PR</span>
+              <span className="absolute -bottom-1 left-1/2 h-0.5 w-6 -translate-x-1/2 rounded-full bg-secondary" />
             </div>
-            <div className="hidden sm:block">
-              <p className="font-semibold text-foreground text-sm md:text-base tracking-tight">Priscila Rogério</p>
-              <p className="text-xs text-muted-foreground">Vereadora • Mandato Participativo</p>
+
+            <div className="min-w-0">
+              <p className="truncate text-sm font-semibold tracking-tight text-foreground md:text-base">
+                Priscila Rogério
+              </p>
+              <div className="flex items-center gap-2 text-[11px] text-muted-foreground md:text-xs">
+                <span className="truncate">Vereadora</span>
+                <span className="h-1 w-1 rounded-full bg-secondary" />
+                <span className="truncate">Mandato Participativo</span>
+              </div>
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden xl:flex items-center justify-center gap-1">
             {navItems.map((item) => (
               <Link
                 key={item.path}
@@ -45,51 +50,50 @@ export function Header() {
             ))}
           </nav>
 
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-3">
-            <Link
-              to="/denuncias"
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-destructive bg-destructive/10 rounded-lg hover:bg-destructive hover:text-destructive-foreground transition-all duration-200"
-            >
-              <AlertTriangle className="w-4 h-4" />
-              Denunciar
-            </Link>
-            <Link
-              to="/forum"
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-secondary text-secondary-foreground rounded-lg hover:brightness-110 transition-all duration-200 shadow-sm"
-            >
-              <MessageSquarePlus className="w-4 h-4" />
-              Envie sua Ideia
-            </Link>
-            <Link
-              to={isAdmin ? "/admin" : "/auth"}
-              className="inline-flex items-center justify-center w-9 h-9 text-muted-foreground hover:text-primary hover:bg-accent rounded-lg transition-all"
-              title={isAdmin ? "Painel Admin" : "Login Admin"}
-            >
-              <Shield className="w-4 h-4" />
-            </Link>
-          </div>
+          <div className="flex items-center justify-end gap-2 md:gap-3">
+            <div className="hidden md:flex items-center gap-3">
+              <Link
+                to="/denuncias"
+                className="inline-flex items-center gap-2 rounded-lg bg-destructive/10 px-4 py-2 text-sm font-medium text-destructive transition-all duration-200 hover:bg-destructive hover:text-destructive-foreground"
+              >
+                <AlertTriangle className="h-4 w-4" />
+                Denúncias
+              </Link>
+              <Link
+                to="/forum"
+                className="inline-flex items-center gap-2 rounded-lg bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-all duration-200 hover:brightness-110"
+              >
+                <MessageSquarePlus className="h-4 w-4" />
+                Participar
+              </Link>
+              <Link
+                to={isAdmin ? "/admin" : "/auth"}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-all hover:bg-accent hover:text-primary"
+                title={isAdmin ? "Painel Admin" : "Login Admin"}
+              >
+                <Shield className="h-4 w-4" />
+              </Link>
+            </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 text-foreground hover:bg-accent rounded-lg transition-colors"
-            aria-label="Menu"
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="rounded-lg p-2 text-foreground transition-colors hover:bg-accent xl:hidden"
+              aria-label="Menu"
+            >
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-border animate-fade-in">
+          <div className="animate-fade-in border-t border-border py-4 xl:hidden">
             <nav className="flex flex-col gap-2">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`px-4 py-3 rounded-lg font-medium transition-colors ${
+                  className={`rounded-lg px-4 py-3 font-medium transition-colors ${
                     location.pathname === item.path
                       ? "bg-primary text-primary-foreground"
                       : "text-foreground hover:bg-accent"
@@ -99,29 +103,30 @@ export function Header() {
                 </Link>
               ))}
             </nav>
-            <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-border">
+
+            <div className="mt-4 flex flex-col gap-3 border-t border-border pt-4">
               <Link
                 to="/denuncias"
                 onClick={() => setIsMenuOpen(false)}
-                className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium text-destructive bg-destructive/10 rounded-lg"
+                className="flex items-center justify-center gap-2 rounded-lg bg-destructive/10 px-4 py-3 text-sm font-medium text-destructive"
               >
-                <AlertTriangle className="w-4 h-4" />
-                Denunciar
+                <AlertTriangle className="h-4 w-4" />
+                Denúncias
               </Link>
               <Link
                 to="/forum"
                 onClick={() => setIsMenuOpen(false)}
-                className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium bg-secondary text-secondary-foreground rounded-lg"
+                className="flex items-center justify-center gap-2 rounded-lg bg-secondary px-4 py-3 text-sm font-medium text-secondary-foreground"
               >
-                <MessageSquarePlus className="w-4 h-4" />
-                Envie sua Ideia
+                <MessageSquarePlus className="h-4 w-4" />
+                Participar do Mandato
               </Link>
               <Link
                 to={isAdmin ? "/admin" : "/auth"}
                 onClick={() => setIsMenuOpen(false)}
-                className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium text-muted-foreground border border-border rounded-lg"
+                className="flex items-center justify-center gap-2 rounded-lg border border-border px-4 py-3 text-sm font-medium text-muted-foreground"
               >
-                <Shield className="w-4 h-4" />
+                <Shield className="h-4 w-4" />
                 {isAdmin ? "Painel Admin" : "Acesso Admin"}
               </Link>
             </div>
