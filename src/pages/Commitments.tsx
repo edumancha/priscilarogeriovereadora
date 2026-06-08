@@ -1,17 +1,18 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CommitmentCard } from "@/components/cards/CommitmentCard";
-import { 
-  Ban, 
-  DollarSign, 
-  FileX, 
-  Heart, 
-  Home, 
-  Briefcase, 
-  Church, 
-  Building2, 
-  Users 
+import {
+  Ban,
+  DollarSign,
+  FileX,
+  Heart,
+  Home,
+  Briefcase,
+  Church,
+  Building2,
+  Users,
 } from "lucide-react";
+import priscilaCommitments from "@/assets/priscila-pink-seated.png.asset.json";
 
 const commitments = [
   {
@@ -74,9 +75,8 @@ export default function Commitments() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      
+
       <main className="flex-grow">
-        {/* Hero */}
         <section className="relative bg-gradient-hero text-primary-foreground py-16 md:py-24">
           <div className="section-container">
             <div className="max-w-3xl mx-auto text-center">
@@ -90,7 +90,6 @@ export default function Commitments() {
           </div>
         </section>
 
-        {/* Commitments List */}
         <section className="section-padding bg-background">
           <div className="section-container">
             <div className="max-w-4xl mx-auto">
@@ -103,18 +102,28 @@ export default function Commitments() {
           </div>
         </section>
 
-        {/* Transparency Note */}
         <section className="section-padding bg-muted/50">
           <div className="section-container">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
-                Transparência Total
-              </h2>
-              <p className="text-muted-foreground leading-relaxed">
-                Cada compromisso é acompanhado publicamente neste portal. Você pode verificar 
-                as votações, projetos e ações relacionadas a cada um deles na página de Projetos. 
-                A prestação de contas é um dever de todo representante público.
-              </p>
+            <div className="grid items-center gap-10 lg:grid-cols-2">
+              <div className="max-w-2xl">
+                <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
+                  Transparência Total
+                </h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  Cada compromisso é acompanhado publicamente neste portal. Você pode verificar
+                  as votações, projetos e ações relacionadas a cada um deles na página de Projetos.
+                  A prestação de contas é um dever de todo representante público.
+                </p>
+              </div>
+
+              <div className="relative">
+                <div className="absolute -inset-4 rounded-3xl bg-primary/10 blur-2xl"></div>
+                <img
+                  src={priscilaCommitments.url}
+                  alt="Priscila Rogério em atividade de mandato no gabinete"
+                  className="relative mx-auto aspect-[4/5] w-full max-w-md rounded-2xl object-cover shadow-2xl lg:ml-auto"
+                />
+              </div>
             </div>
           </div>
         </section>

@@ -2,8 +2,8 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Link } from "react-router-dom";
 import { ArrowRight, Heart, Users, Shield, Award } from "lucide-react";
-import priscilaLibrary from "@/assets/priscila-library-thinking.jpeg";
-import priscilaLibraryDesk from "@/assets/priscila-library-desk.jpeg";
+import priscilaBiography from "@/assets/priscila-brown-vest.png.asset.json";
+import priscilaAction from "@/assets/priscila-podium-pink.png.asset.json";
 
 const values = [
   {
@@ -32,9 +32,8 @@ export default function About() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      
+
       <main className="flex-grow">
-        {/* Hero */}
         <section className="relative bg-gradient-hero text-primary-foreground py-16 md:py-24">
           <div className="section-container">
             <div className="max-w-3xl mx-auto text-center">
@@ -48,43 +47,42 @@ export default function About() {
           </div>
         </section>
 
-        {/* Biography */}
         <section className="section-padding bg-background">
           <div className="section-container">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <div className="absolute -inset-4 bg-secondary/20 rounded-3xl blur-2xl"></div>
                 <img
-                  src={priscilaLibrary}
-                  alt="Vereadora Priscila Rogério em momento de reflexão"
-                  className="relative w-full max-w-md mx-auto rounded-2xl shadow-2xl object-cover aspect-[4/3]"
+                  src={priscilaBiography.url}
+                  alt="Priscila Rogério sentada em atividade no mandato"
+                  className="relative mx-auto aspect-[4/5] w-full max-w-md rounded-2xl object-cover shadow-2xl"
                 />
               </div>
-              
+
               <div>
                 <span className="text-primary font-medium text-sm uppercase tracking-wider">Minha História</span>
                 <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-2 mb-6">
                   Uma trajetória de compromisso
                 </h2>
-                
+
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    Mãe dedicada, esposa amorosa e cristã convicta. Minha jornada na vida pública 
+                    Mãe dedicada, esposa amorosa e cristã convicta. Minha jornada na vida pública
                     nasceu do desejo genuíno de fazer a diferença na vida das pessoas da nossa cidade.
                   </p>
                   <p>
-                    Acredito que a política é um instrumento de transformação social, e por isso 
-                    me dedico a um mandato participativo, onde cada cidadão tem voz e seu voto 
+                    Acredito que a política é um instrumento de transformação social, e por isso
+                    me dedico a um mandato participativo, onde cada cidadão tem voz e seu voto
                     realmente conta.
                   </p>
                   <p>
-                    Minha formação e minha fé me ensinaram que servir ao próximo é a mais nobre 
-                    das missões. É com esse espírito que assumo cada projeto, cada votação, 
+                    Minha formação e minha fé me ensinaram que servir ao próximo é a mais nobre
+                    das missões. É com esse espírito que assumo cada projeto, cada votação,
                     cada decisão no exercício do mandato.
                   </p>
                   <p>
-                    Sou defensora da família, do trabalho digno, da cultura local e da fé como 
-                    pilares de uma sociedade justa e solidária. Contra burocracias excessivas 
+                    Sou defensora da família, do trabalho digno, da cultura local e da fé como
+                    pilares de uma sociedade justa e solidária. Contra burocracias excessivas
                     e a favor de uma gestão pública eficiente e transparente.
                   </p>
                 </div>
@@ -93,7 +91,6 @@ export default function About() {
           </div>
         </section>
 
-        {/* Values */}
         <section className="section-padding bg-muted/50">
           <div className="section-container">
             <div className="text-center mb-12">
@@ -105,8 +102,8 @@ export default function About() {
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {values.map((value, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="card-elevated p-6 text-center group hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
                 >
                   <div className="w-14 h-14 bg-accent group-hover:bg-primary-foreground/20 rounded-2xl flex items-center justify-center mx-auto mb-4 transition-colors">
@@ -122,7 +119,6 @@ export default function About() {
           </div>
         </section>
 
-        {/* Action Section */}
         <section className="section-padding bg-background">
           <div className="section-container">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -131,16 +127,16 @@ export default function About() {
                 <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-2 mb-6">
                   Trabalhando pela cidade
                 </h2>
-                
+
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    No dia a dia do mandato, estou presente nas comunidades, ouvindo as demandas, 
-                    levando as necessidades do povo para a Câmara e fiscalizando as ações do 
+                    No dia a dia do mandato, estou presente nas comunidades, ouvindo as demandas,
+                    levando as necessidades do povo para a Câmara e fiscalizando as ações do
                     poder público.
                   </p>
                   <p>
-                    Através deste portal participativo, você pode acompanhar cada projeto, 
-                    sugerir novas ideias e votar nas propostas que considera mais importantes 
+                    Através deste portal participativo, você pode acompanhar cada projeto,
+                    sugerir novas ideias e votar nas propostas que considera mais importantes
                     para nossa cidade.
                   </p>
                 </div>
@@ -150,21 +146,21 @@ export default function About() {
                     Ver Compromissos
                     <ArrowRight className="w-5 h-5" />
                   </Link>
-                  <Link 
-                    to="/projetos" 
+                  <Link
+                    to="/projetos"
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold border-2 border-primary text-primary rounded-full hover:bg-primary hover:text-primary-foreground transition-all"
                   >
                     Ver Projetos
                   </Link>
                 </div>
               </div>
-              
+
               <div className="relative">
                 <div className="absolute -inset-4 bg-primary/10 rounded-3xl blur-2xl"></div>
                 <img
-                  src={priscilaLibraryDesk}
-                  alt="Priscila Rogério estudando documentos do mandato"
-                  className="relative w-full max-w-md mx-auto lg:ml-auto rounded-2xl shadow-2xl object-cover aspect-[4/3]"
+                  src={priscilaAction.url}
+                  alt="Priscila Rogério discursando na tribuna"
+                  className="relative mx-auto aspect-[4/5] w-full max-w-md rounded-2xl object-cover shadow-2xl lg:ml-auto"
                 />
               </div>
             </div>
