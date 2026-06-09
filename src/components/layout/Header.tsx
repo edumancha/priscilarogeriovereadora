@@ -22,23 +22,14 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur-md">
       <div className="section-container">
         <div className="grid h-16 grid-cols-[auto_1fr_auto] items-center gap-4 md:h-20 md:gap-6">
-          <Link to="/" className="flex min-w-0 items-center gap-3">
-            <div className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-hero shadow-glow md:h-12 md:w-12">
-              <span className="text-lg font-bold tracking-tight text-primary-foreground md:text-xl">PR</span>
-              <span className="absolute -bottom-1 left-1/2 h-0.5 w-6 -translate-x-1/2 rounded-full bg-secondary" />
-            </div>
-
-            <div className="min-w-0">
-              <p className="truncate text-sm font-semibold tracking-tight text-foreground md:text-base">
-                Priscila Rogério
-              </p>
-              <div className="flex items-center gap-2 text-[11px] text-muted-foreground md:text-xs">
-                <span className="truncate">Vereadora</span>
-                <span className="h-1 w-1 rounded-full bg-secondary" />
-                <span className="truncate">Mandato Participativo</span>
-              </div>
-            </div>
+          <Link to="/" className="flex min-w-0 items-center gap-3" aria-label="Priscila Rogério - Vereadora">
+            <img
+              src={priscilaLogo.url}
+              alt="Priscila Rogério - Vereadora"
+              className="h-12 w-auto shrink-0 md:h-14"
+            />
           </Link>
+
 
           <nav className="hidden xl:flex items-center justify-center gap-1">
             {navItems.map((item) => (
