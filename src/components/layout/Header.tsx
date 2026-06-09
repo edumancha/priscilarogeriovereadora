@@ -2,6 +2,8 @@ import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, MessageSquarePlus, AlertTriangle, Shield } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
+import priscilaLogo from "@/assets/priscila-logo.png.asset.json";
+
 
 const navItems = [
   { path: "/", label: "Início" },
