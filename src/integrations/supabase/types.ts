@@ -10,7 +10,7 @@ export type Database = {
   // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
-    PostgrestVersion: "14.1"
+    PostgrestVersion: "14.5"
   }
   public: {
     Tables: {
@@ -271,6 +271,7 @@ export type Database = {
       }
       suggestions: {
         Row: {
+          admin_response: string | null
           author_name: string | null
           category: Database["public"]["Enums"]["category_type"]
           comments_count: number | null
@@ -282,12 +283,15 @@ export type Database = {
           is_approved: boolean | null
           neighborhood: string | null
           profile_id: string | null
+          status: Database["public"]["Enums"]["suggestion_status"]
+          status_updated_at: string | null
           title: string
           updated_at: string
           votes_down: number | null
           votes_up: number | null
         }
         Insert: {
+          admin_response?: string | null
           author_name?: string | null
           category: Database["public"]["Enums"]["category_type"]
           comments_count?: number | null
@@ -299,12 +303,15 @@ export type Database = {
           is_approved?: boolean | null
           neighborhood?: string | null
           profile_id?: string | null
+          status?: Database["public"]["Enums"]["suggestion_status"]
+          status_updated_at?: string | null
           title: string
           updated_at?: string
           votes_down?: number | null
           votes_up?: number | null
         }
         Update: {
+          admin_response?: string | null
           author_name?: string | null
           category?: Database["public"]["Enums"]["category_type"]
           comments_count?: number | null
@@ -316,6 +323,8 @@ export type Database = {
           is_approved?: boolean | null
           neighborhood?: string | null
           profile_id?: string | null
+          status?: Database["public"]["Enums"]["suggestion_status"]
+          status_updated_at?: string | null
           title?: string
           updated_at?: string
           votes_down?: number | null
@@ -436,6 +445,13 @@ export type Database = {
       item_type: "project" | "suggestion"
       report_priority: "low" | "medium" | "high" | "urgent"
       report_status: "pending" | "in_review" | "resolved" | "archived"
+      suggestion_status:
+        | "recebida"
+        | "em_analise"
+        | "encaminhada"
+        | "em_andamento"
+        | "concluida"
+        | "nao_viavel"
       vote_type: "up" | "down"
     }
     CompositeTypes: {
@@ -578,6 +594,14 @@ export const Constants = {
       item_type: ["project", "suggestion"],
       report_priority: ["low", "medium", "high", "urgent"],
       report_status: ["pending", "in_review", "resolved", "archived"],
+      suggestion_status: [
+        "recebida",
+        "em_analise",
+        "encaminhada",
+        "em_andamento",
+        "concluida",
+        "nao_viavel",
+      ],
       vote_type: ["up", "down"],
     },
   },
