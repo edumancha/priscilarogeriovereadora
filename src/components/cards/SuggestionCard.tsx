@@ -2,6 +2,8 @@ import { ThumbsUp, ThumbsDown, MessageCircle, User, Clock, MapPin, Tag } from "l
 import { useState } from "react";
 import { useVote } from "@/hooks/useSuggestions";
 import { toast } from "sonner";
+import { CommentsSection } from "@/components/CommentsSection";
+import { getSuggestionStatus } from "@/lib/suggestionStatus";
 
 interface SuggestionCardProps {
   id: string;
@@ -15,6 +17,8 @@ interface SuggestionCardProps {
   votesUp: number;
   votesDown: number;
   comments: number;
+  status?: string | null;
+  adminResponse?: string | null;
 }
 
 const categoryLabels: Record<string, string> = {
