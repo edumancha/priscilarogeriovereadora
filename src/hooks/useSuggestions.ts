@@ -14,6 +14,8 @@ export interface Suggestion {
   votes_down: number;
   comments_count: number;
   created_at: string;
+  status?: string | null;
+  admin_response?: string | null;
 }
 
 export interface CreateSuggestionInput {

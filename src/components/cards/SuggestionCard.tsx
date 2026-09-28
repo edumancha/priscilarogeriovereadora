@@ -44,7 +44,11 @@ export function SuggestionCard({
   votesUp,
   votesDown,
   comments,
+  status,
+  adminResponse,
 }: SuggestionCardProps) {
+  const [showComments, setShowComments] = useState(false);
+  const statusInfo = getSuggestionStatus(status);
   const [userVote, setUserVote] = useState<"up" | "down" | null>(null);
   const [localVotesUp, setLocalVotesUp] = useState(votesUp);
   const [localVotesDown, setLocalVotesDown] = useState(votesDown);
@@ -144,7 +148,14 @@ export function SuggestionCard({
             {neighborhood}
           </span>
         )}
+        <span className={`badge-status ${statusInfo.className}`}>{statusInfo.label}</span>
       </div>
+      {adminResponse && (
+        <div className="mb-3 p-3 rounded-lg bg-accent text-sm text-accent-foreground">
+          <strong>Resposta do mandato:</strong> {adminResponse}
+        </div>
+      )}
+
 
       {/* Content */}
       <h3 className="font-display text-lg font-semibold text-foreground mb-2 line-clamp-2">
@@ -176,11 +187,16 @@ export function SuggestionCard({
             <span className="font-semibold">{localVotesDown}</span>
           </button>
         </div>
-        <button className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+        <button
+          onClick={() => setShowComments((v) => !v)}
+          aria-expanded={showComments}
+          className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+        >
           <MessageCircle className="w-4 h-4" />
           <span className="text-sm font-medium">{comments} comentários</span>
         </button>
       </div>
+      {showComments && <CommentsSection itemType="suggestion" itemId={id} />}
     </article>
   );
 }

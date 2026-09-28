@@ -11,6 +11,8 @@ export interface Project {
   votes_down: number;
   comments_count: number;
   created_at: string;
+  status?: "rascunho" | "andamento" | "concluido";
+  order_index?: number;
 }
 
 export function useProjects() {
@@ -21,6 +23,8 @@ export function useProjects() {
         .from("projects")
         .select("*")
         .eq("is_published", true)
+        .neq("status", "rascunho")
+        .order("order_index", { ascending: true })
         .order("created_at", { ascending: false });
 
       if (error) throw error;

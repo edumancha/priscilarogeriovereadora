@@ -389,6 +389,8 @@ export default function Forum() {
                     votesUp={suggestion.votes_up}
                     votesDown={suggestion.votes_down}
                     comments={suggestion.comments_count}
+                    status={suggestion.status}
+                    adminResponse={suggestion.admin_response}
                   />
                 ))}
               </div>
