@@ -2,6 +2,7 @@ import { ThumbsUp, ThumbsDown, MessageCircle, Calendar, MapPin, Tag } from "luci
 import { useState } from "react";
 import { useVote } from "@/hooks/useSuggestions";
 import { toast } from "sonner";
+import { CommentsSection } from "@/components/CommentsSection";
 
 interface ProjectCardProps {
   id: string;
@@ -37,6 +38,7 @@ export function ProjectCard({
   votesDown,
   comments,
 }: ProjectCardProps) {
+  const [showComments, setShowComments] = useState(false);
   const [userVote, setUserVote] = useState<"up" | "down" | null>(null);
   const [localVotesUp, setLocalVotesUp] = useState(votesUp);
   const [localVotesDown, setLocalVotesDown] = useState(votesDown);
@@ -156,11 +158,16 @@ export function ProjectCard({
             <span className="font-semibold">{localVotesDown}</span>
           </button>
         </div>
-        <button className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+        <button
+          onClick={() => setShowComments((v) => !v)}
+          aria-expanded={showComments}
+          className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+        >
           <MessageCircle className="w-4 h-4" />
           <span className="text-sm font-medium">{comments}</span>
         </button>
       </div>
+      {showComments && <CommentsSection itemType="project" itemId={id} />}
     </article>
   );
 }

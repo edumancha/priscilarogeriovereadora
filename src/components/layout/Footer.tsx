@@ -102,8 +102,12 @@ export function Footer() {
             <p className="text-sm text-primary-foreground/60">
               © {new Date().getFullYear()} Priscila Rogério. Todos os direitos reservados.
             </p>
-            <p className="text-sm text-primary-foreground/60">
-              Mandato Participativo Digital • Transparência e Proximidade
+            <p className="text-sm text-primary-foreground/60 flex flex-wrap items-center gap-3">
+              <span>Mandato Participativo Digital • Transparência e Proximidade</span>
+              <Link to="/privacidade" className="hover:text-secondary transition-colors">Privacidade</Link>
+              <Link to="/admin" className="text-xs text-primary-foreground/40 hover:text-primary-foreground/70 transition-colors">
+                Acesso Restrito
+              </Link>
             </p>
           </div>
         </div>
