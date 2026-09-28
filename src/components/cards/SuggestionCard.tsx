@@ -44,7 +44,11 @@ export function SuggestionCard({
   votesUp,
   votesDown,
   comments,
+  status,
+  adminResponse,
 }: SuggestionCardProps) {
+  const [showComments, setShowComments] = useState(false);
+  const statusInfo = getSuggestionStatus(status);
   const [userVote, setUserVote] = useState<"up" | "down" | null>(null);
   const [localVotesUp, setLocalVotesUp] = useState(votesUp);
   const [localVotesDown, setLocalVotesDown] = useState(votesDown);
