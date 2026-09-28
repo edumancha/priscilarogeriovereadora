@@ -8,6 +8,8 @@ import { toast } from "sonner";
 import { Loader2, Trash2, ShieldAlert, MessageSquare, FileWarning, LogOut, RefreshCw } from "lucide-react";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import { AdminLoginForm } from "@/components/AdminLoginForm";
+import { suggestionStatusOptions, type SuggestionStatus } from "@/lib/suggestionStatus";
 
 type Tab = "reports" | "suggestions";
 
@@ -19,9 +21,23 @@ export default function Admin() {
   const [suggestions, setSuggestions] = useState<any[]>([]);
   const [busy, setBusy] = useState(false);
 
-  useEffect(() => {
-    if (!loading && !user) navigate("/auth");
-  }, [user, loading, navigate]);
+  const [search, setSearch] = useState("");
+
+  const updateSuggestion = async (id: string, patch: { status?: SuggestionStatus; admin_response?: string | null }) => {
+    const { error } = await supabase
+      .from("suggestions")
+      .update({ ...patch, status_updated_at: new Date().toISOString() })
+      .eq("id", id);
+    if (error) return toast.error(error.message);
+    setSuggestions((prev) => prev.map((s) => (s.id === id ? { ...s, ...patch } : s)));
+    toast.success("Sugestão atualizada");
+  };
+
+  const q = search.trim().toLowerCase();
+  const match = (...fields: (string | null | undefined)[]) =>
+    !q || fields.some((f) => f?.toLowerCase().includes(q));
+  const visibleReports = reports.filter((r) => match(r.title, r.description, r.reporter_name, r.neighborhood));
+  const visibleSuggestions = suggestions.filter((s) => match(s.title, s.description, s.author_name, s.neighborhood));
 
   useEffect(() => {
     if (isAdmin) loadAll();
@@ -79,6 +95,18 @@ export default function Admin() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-grow flex items-center justify-center bg-muted/40 p-6">
+          <AdminLoginForm />
+        </main>
+        <Footer />
       </div>
     );
   }
