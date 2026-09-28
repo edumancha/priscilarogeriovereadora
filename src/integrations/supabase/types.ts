@@ -188,6 +188,8 @@ export type Database = {
           description: string
           id: string
           is_published: boolean | null
+          order_index: number
+          status: Database["public"]["Enums"]["project_status"]
           title: string
           updated_at: string
           votes_down: number | null
@@ -201,6 +203,8 @@ export type Database = {
           description: string
           id?: string
           is_published?: boolean | null
+          order_index?: number
+          status?: Database["public"]["Enums"]["project_status"]
           title: string
           updated_at?: string
           votes_down?: number | null
@@ -214,6 +218,8 @@ export type Database = {
           description?: string
           id?: string
           is_published?: boolean | null
+          order_index?: number
+          status?: Database["public"]["Enums"]["project_status"]
           title?: string
           updated_at?: string
           votes_down?: number | null
@@ -443,6 +449,7 @@ export type Database = {
         | "cultura"
         | "transporte"
       item_type: "project" | "suggestion"
+      project_status: "rascunho" | "andamento" | "concluido"
       report_priority: "low" | "medium" | "high" | "urgent"
       report_status: "pending" | "in_review" | "resolved" | "archived"
       suggestion_status:
@@ -592,6 +599,7 @@ export const Constants = {
         "transporte",
       ],
       item_type: ["project", "suggestion"],
+      project_status: ["rascunho", "andamento", "concluido"],
       report_priority: ["low", "medium", "high", "urgent"],
       report_status: ["pending", "in_review", "resolved", "archived"],
       suggestion_status: [
