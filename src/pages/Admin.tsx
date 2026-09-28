@@ -143,7 +143,7 @@ export default function Admin() {
         <div className="section-container">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
             <div>
-              <h1 className="text-3xl font-bold text-foreground tracking-tighter">Painel Administrativo</h1>
+              <h1 className="text-3xl font-bold text-foreground tracking-tighter">Bem-vinda ao Painel da Vereadora</h1>
               <p className="text-muted-foreground text-sm mt-1">Logada como {user?.email}</p>
             </div>
             <div className="flex gap-2">
@@ -175,6 +175,14 @@ export default function Admin() {
               <MessageSquare className="w-4 h-4" /> Mandato Participativo ({suggestions.length})
             </button>
           </div>
+
+          <input
+            type="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Buscar por título, descrição, nome ou bairro..."
+            className="w-full mb-6 px-4 py-3 bg-card rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary/20"
+          />
 
           {busy ? (
             <div className="flex justify-center py-16"><Loader2 className="w-8 h-8 animate-spin text-primary" /></div>
@@ -223,9 +231,9 @@ export default function Admin() {
             </div>
           ) : (
             <div className="space-y-4">
-              {suggestions.length === 0 ? (
-                <div className="bg-card border border-border rounded-xl p-8 text-center text-muted-foreground">Nenhuma sugestão recebida.</div>
-              ) : suggestions.map((s) => (
+              {visibleSuggestions.length === 0 ? (
+                <div className="bg-card border border-border rounded-xl p-8 text-center text-muted-foreground">Nenhuma sugestão encontrada.</div>
+              ) : visibleSuggestions.map((s) => (
                 <div key={s.id} className="bg-card border border-border rounded-xl p-5 shadow-sm">
                   <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
                     <div className="flex-1">
@@ -239,8 +247,30 @@ export default function Admin() {
                       <h3 className="font-semibold text-foreground mb-1">{s.title}</h3>
                       <p className="text-sm text-muted-foreground mb-2 whitespace-pre-wrap">{s.description}</p>
                       <p className="text-xs text-muted-foreground">
-                        Por: {s.is_anonymous ? "Anônimo" : s.author_name || "—"} • 👍 {s.votes_up} • 👎 {s.votes_down}
+                        Por: {s.is_anonymous ? "Anônimo" : s.author_name || "—"} • 👍 {s.votes_up} • 👎 {s.votes_down} • 💬 {s.comments_count}
                       </p>
+                      <div className="mt-3 grid gap-2 sm:grid-cols-[180px_1fr]">
+                        <select
+                          value={s.status ?? "recebida"}
+                          onChange={(e) => updateSuggestion(s.id, { status: e.target.value as SuggestionStatus })}
+                          className="text-sm px-2 py-2 bg-muted rounded border border-border"
+                          aria-label="Situação da sugestão"
+                        >
+                          {suggestionStatusOptions.map((o) => (
+                            <option key={o.value} value={o.value}>{o.label}</option>
+                          ))}
+                        </select>
+                        <input
+                          defaultValue={s.admin_response ?? ""}
+                          maxLength={1000}
+                          placeholder="Resposta pública do mandato (salva ao sair do campo)"
+                          onBlur={(e) => {
+                            const v = e.target.value.trim();
+                            if (v !== (s.admin_response ?? "")) updateSuggestion(s.id, { admin_response: v || null });
+                          }}
+                          className="text-sm px-3 py-2 bg-muted rounded border border-border"
+                        />
+                      </div>
                     </div>
                     <button
                       onClick={() => deleteSuggestion(s.id)}
