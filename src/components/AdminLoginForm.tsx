@@ -23,7 +23,10 @@ export function AdminLoginForm() {
     const parsed = schema.safeParse({ email, password });
     if (!parsed.success) return toast.error(parsed.error.issues[0].message);
     setLoading(true);
-    const { error } = await supabase.auth.signInWithPassword(parsed.data);
+    const { error } = await supabase.auth.signInWithPassword({
+      email: parsed.data.email!,
+      password: parsed.data.password!,
+    });
     setLoading(false);
     if (error) toast.error("Email ou senha incorretos");
   };
