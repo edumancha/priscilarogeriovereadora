@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
+import { Mail, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
 
 export function Footer() {
   return (
@@ -52,10 +52,6 @@ export function Footer() {
               <a href="mailto:contato@priscilariogerio.com.br" className="flex items-center gap-3 text-sm text-primary-foreground/80 hover:text-secondary transition-colors">
                 <Mail className="w-4 h-4" />
                 contato@priscilariogerio.com.br
-              </a>
-              <a href="tel:+5500000000000" className="flex items-center gap-3 text-sm text-primary-foreground/80 hover:text-secondary transition-colors">
-                <Phone className="w-4 h-4" />
-                (00) 0000-0000
               </a>
               <p className="flex items-center gap-3 text-sm text-primary-foreground/80">
                 <MapPin className="w-4 h-4" />
