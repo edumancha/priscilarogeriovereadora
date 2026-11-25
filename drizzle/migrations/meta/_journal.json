@@ -1,5 +1,13 @@
 {
   "version": "7",
   "dialect": "postgresql",
-  "entries": []
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1795574740588,
+      "tag": "0000_allow_rls_role_checks_for_visitors",
+      "breakpoints": true
+    }
+  ]
 }
