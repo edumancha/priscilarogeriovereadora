@@ -49,9 +49,12 @@ export function Footer() {
           <div>
             <h4 className="font-display text-lg font-semibold mb-6">Contato</h4>
             <div className="flex flex-col gap-4">
-              <a href="mailto:contato@priscilariogerio.com.br" className="flex items-center gap-3 text-sm text-primary-foreground/80 hover:text-secondary transition-colors">
-                <Mail className="w-4 h-4" />
-                contato@priscilariogerio.com.br
+              <a
+                href="mailto:contato@priscilariogerio.com.br?subject=Mensagem%20para%20o%20mandato%20de%20Priscila%20Rog%C3%A9rio&body=Ol%C3%A1%2C%20Priscila%21%0A%0A"
+                className="group flex items-center gap-3 text-sm text-primary-foreground/80 hover:text-secondary transition-colors underline underline-offset-4 decoration-primary-foreground/30 group-hover:decoration-secondary"
+              >
+                <Mail className="w-4 h-4 shrink-0" />
+                <span className="break-all">contato@priscilariogerio.com.br</span>
               </a>
               <p className="flex items-center gap-3 text-sm text-primary-foreground/80">
                 <MapPin className="w-4 h-4" />
