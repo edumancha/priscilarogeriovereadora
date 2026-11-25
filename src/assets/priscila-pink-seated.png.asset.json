@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "0aad266d-0ce9-4121-b556-4504c3c15e1e",
-  "project_id": "d89ea011-2db5-4a7d-a984-e28b10945213",
-  "url": "/__l5e/assets-v1/0aad266d-0ce9-4121-b556-4504c3c15e1e/priscila-pink-seated.png",
-  "r2_key": "a/v1/d89ea011-2db5-4a7d-a984-e28b10945213/0aad266d-0ce9-4121-b556-4504c3c15e1e/priscila-pink-seated.png",
-  "original_filename": "priscila-pink-seated.png",
-  "size": 1972358,
   "content_type": "image/png",
-  "created_at": "2026-06-08T17:43:43Z"
+  "created_at": "2026-06-08T17:43:43Z",
+  "original_filename": "priscila-pink-seated.png",
+  "project_id": "fcb22df4-a3c9-4af9-851e-bd4792cdf168",
+  "r2_key": "a/v1/fcb22df4-a3c9-4af9-851e-bd4792cdf168/0aad266d-0ce9-4121-b556-4504c3c15e1e/priscila-pink-seated.png",
+  "size": 1972358,
+  "url": "/__l5e/assets-v1/0aad266d-0ce9-4121-b556-4504c3c15e1e/priscila-pink-seated.png",
+  "version": 1
 }

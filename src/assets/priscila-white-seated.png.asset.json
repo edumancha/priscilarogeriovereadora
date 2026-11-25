@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "d9f15f4e-1590-42ca-b684-101bc6d1ac20",
-  "project_id": "d89ea011-2db5-4a7d-a984-e28b10945213",
-  "url": "/__l5e/assets-v1/d9f15f4e-1590-42ca-b684-101bc6d1ac20/priscila-white-seated.png",
-  "r2_key": "a/v1/d89ea011-2db5-4a7d-a984-e28b10945213/d9f15f4e-1590-42ca-b684-101bc6d1ac20/priscila-white-seated.png",
-  "original_filename": "priscila-white-seated.png",
-  "size": 1737807,
   "content_type": "image/png",
-  "created_at": "2026-06-08T17:43:53Z"
+  "created_at": "2026-06-08T17:43:53Z",
+  "original_filename": "priscila-white-seated.png",
+  "project_id": "fcb22df4-a3c9-4af9-851e-bd4792cdf168",
+  "r2_key": "a/v1/fcb22df4-a3c9-4af9-851e-bd4792cdf168/d9f15f4e-1590-42ca-b684-101bc6d1ac20/priscila-white-seated.png",
+  "size": 1737807,
+  "url": "/__l5e/assets-v1/d9f15f4e-1590-42ca-b684-101bc6d1ac20/priscila-white-seated.png",
+  "version": 1
 }
