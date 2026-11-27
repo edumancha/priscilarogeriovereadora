@@ -8,7 +8,7 @@ import { useProjects } from "@/hooks/useProjects";
 import { useSuggestions } from "@/hooks/useSuggestions";
 import { format, formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
-import priscilaHero from "@/assets/priscila-hero-green.png.asset.json";
+import priscilaHero from "@/assets/priscila-hero-green.png";
 
 export default function Index() {
   const { data: projects = [] } = useProjects();
@@ -88,7 +88,7 @@ export default function Index() {
                   <div className="absolute -inset-6 rounded-[2rem] bg-secondary/35 blur-3xl"></div>
                   <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-t from-primary/25 via-transparent to-transparent"></div>
                   <img
-                    src={priscilaHero.url}
+                    src={priscilaHero}
                     alt="Vereadora Priscila Rogério em retrato institucional do mandato"
                     className="relative aspect-[2/3] w-[22rem] rounded-[2rem] object-cover object-top shadow-2xl md:w-[30rem] lg:w-[36rem]"
                     style={{

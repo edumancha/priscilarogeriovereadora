@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { AlertTriangle, Send, Loader2, ShieldCheck, Lock, FileWarning } from "lucide-react";
-import priscilaOffice from "@/assets/priscila-white-seated.png.asset.json";
+import priscilaOffice from "@/assets/priscila-office-smile.jpeg";
 
 const reportSchema = z.object({
   reporter_name: z.string().trim().min(2, "Informe seu nome completo").max(120),
@@ -111,8 +111,8 @@ export default function Reports() {
               <div className="relative hidden lg:block">
                 <div className="absolute -inset-4 bg-secondary/20 rounded-3xl blur-2xl" />
                 <img
-                  src={priscilaOffice.url}
-                  alt="Priscila Rogério em retrato do gabinete do mandato"
+                  src={priscilaOffice}
+                  alt="Priscila Rogério trabalhando no gabinete do mandato"
                   className="relative aspect-[4/5] w-full rounded-2xl object-cover shadow-2xl"
                 />
               </div>

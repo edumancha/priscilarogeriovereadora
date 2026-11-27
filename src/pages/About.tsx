@@ -2,8 +2,8 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Link } from "react-router-dom";
 import { ArrowRight, Heart, Users, Shield, Award } from "lucide-react";
-import priscilaBiography from "@/assets/priscila-brown-vest.png.asset.json";
-import priscilaAction from "@/assets/priscila-podium-pink.png.asset.json";
+import priscilaBiography from "@/assets/priscila-hero.jpeg";
+import priscilaAction from "@/assets/priscila-speaking.jpeg";
 
 const values = [
   {
@@ -53,8 +53,8 @@ export default function About() {
               <div className="relative">
                 <div className="absolute -inset-4 bg-secondary/20 rounded-3xl blur-2xl"></div>
                 <img
-                  src={priscilaBiography.url}
-                  alt="Priscila Rogério sentada em atividade no mandato"
+                  src={priscilaBiography}
+                  alt="Priscila Rogério em evento público do mandato"
                   className="relative mx-auto aspect-[4/5] w-full max-w-md rounded-2xl object-cover shadow-2xl"
                 />
               </div>
@@ -158,7 +158,7 @@ export default function About() {
               <div className="relative">
                 <div className="absolute -inset-4 bg-primary/10 rounded-3xl blur-2xl"></div>
                 <img
-                  src={priscilaAction.url}
+                  src={priscilaAction}
                   alt="Priscila Rogério discursando na tribuna"
                   className="relative mx-auto aspect-[4/5] w-full max-w-md rounded-2xl object-cover shadow-2xl lg:ml-auto"
                 />

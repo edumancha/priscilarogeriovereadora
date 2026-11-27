@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, MessageSquarePlus, AlertTriangle, Shield } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
-import priscilaLogo from "@/assets/priscila-logo.png.asset.json";
+import priscilaLogo from "@/assets/priscila-logo.png";
 
 
 const navItems = [
@@ -24,7 +24,7 @@ export function Header() {
         <div className="grid h-16 grid-cols-[auto_1fr_auto] items-center gap-4 md:h-20 md:gap-6">
           <Link to="/" className="flex min-w-0 items-center gap-3" aria-label="Priscila Rogério - Vereadora">
             <img
-              src={priscilaLogo.url}
+              src={priscilaLogo}
               alt="Priscila Rogério - Vereadora"
               className="h-12 w-auto shrink-0 md:h-14"
             />

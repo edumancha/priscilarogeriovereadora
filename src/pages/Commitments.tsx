@@ -12,7 +12,7 @@ import {
   Building2,
   Users,
 } from "lucide-react";
-import priscilaCommitments from "@/assets/priscila-pink-seated.png.asset.json";
+import priscilaCommitments from "@/assets/priscila-library-desk.jpeg";
 
 const commitments = [
   {
@@ -119,7 +119,7 @@ export default function Commitments() {
               <div className="relative">
                 <div className="absolute -inset-4 rounded-3xl bg-primary/10 blur-2xl"></div>
                 <img
-                  src={priscilaCommitments.url}
+                  src={priscilaCommitments}
                   alt="Priscila Rogério em atividade de mandato no gabinete"
                   className="relative mx-auto aspect-[4/5] w-full max-w-md rounded-2xl object-cover shadow-2xl lg:ml-auto"
                 />
